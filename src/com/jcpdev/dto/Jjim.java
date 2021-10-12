@@ -7,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment {
-	private int idx; //��� ��ȣ
-	private int writingIdx; //�� ��ȣ
+public class Jjim {
 	private String userId; //���� ���̵�
-	private String content; //��� ����
+	private int writingIdx; //�� ��ȣ
+	private String categoryIdx; // ī�װ� ��ȣ
 }

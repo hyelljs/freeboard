@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,17 +29,20 @@ input[type=submit], input[type=button] {
 	width:35%;
 }
 </style>
+<link rel="stylesheet" href="./css/flexbox2.css?v=3"> <!-- 현재 위치 아래 css 폴더 -->
 </head>
 <body>
-
+<%@ include file="top.jsp" %>
+<section>
 <div>
-	<form action="loginAction.jsp" method="post">
+	<form action="loginAction.do" method="post">
 		<input type="text" name="userid" placeholder="아이디(이메일) 입력하세요.">
 		<input type="password" name="password" placeholder="비밀번호 입력하세요.">
 		<input type="submit" value="Login">
-		<input type="button" value="HOME" onclick = "location.href='home.jsp'">
+		<input type="button" value="HOME" onclick = "location.href='./'">
 	</form>
-
+</section>
+<%@ include file="bottom.jsp" %>
 </div>
 </body>
 </html>

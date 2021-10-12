@@ -2,7 +2,6 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -10,9 +9,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>day7 글 상세보기</title>
-<link rel="stylesheet" href="../css/freeboard.css?v=3">
+<link rel="stylesheet" href="css/freeboard.css?v=3">
+<link rel="stylesheet" href="css/flexbox2.css?v=3"><!-- url기준 -->
 </head>
 <body>
+<%@ include file="../top.jsp" %>
+<section>
 	<!-- 문서가 생성될때 실행 -->
 	<h3>동아리 커뮤니티</h3>
 	<hr>
@@ -49,13 +51,13 @@
 			</li>
 		</ul>
 	<div style="text-align: center;margin-bottom: 10px;">
-		<a class="button" href="updateAction.jsp?idx=${bean.idx}&page=${page}">수정</a>
+		<a class="button" href="update.do?idx=${bean.idx}&page=${page}">수정</a>
 		<a class="button" onclick="deleteSet()">삭제</a>
-		<a class="button" href="listAction.jsp?page=${page }">목록</a>
+		<a class="button" href="list.do?page=${page }">목록</a>
 	</div>
 	<!-- 메인글 출력 끝 -->
 	<!-- 댓글 시작 -->
-	<form action="commentAction.jsp?page=${page }" method="post" name="frmCmt">
+	<form action="comment.do?page=${page }" method="post" name="frmCmt">
 	<input type="hidden" name="mref" value="${bean.idx }">
 		<hr class="line">
 		<div>
@@ -105,6 +107,8 @@
 	</form>
 	
 </div>
+</section>
+<%@ include file="../bottom.jsp" %>
 <!-- 처음에는 display가 none 이고 안보입니다. -->
 <!-- modal : alert,confirm 메소드 사용 외에 추가적인 정보를 받을 때 사용자가 만드는 입력 상자...-->
 	<div id="myModal" class="modal">
@@ -114,7 +118,7 @@
 			<div style="padding: 0px 20px;">
 				<b>글비밀번호</b><br>
 				<br>
-				<form action="deleteAction.jsp" method="post" name="frmPassword"
+				<form action="delete.do" method="post" name="frmPassword"
 						onsubmit="return deleteOk()">
 					<input type="hidden" name="idx" value="${bean.idx }"> <!--삭제할 글번호-->
 					<input type="hidden" name="page" value="${page }">
@@ -159,7 +163,7 @@
 		console.log(cmtidx);console.log(idx);
 		const yn = confirm('댓글 삭제하시겠습니까?');
 		if(yn){
-			location.href='commentAction.jsp?del=&cmtidx=' + cmtidx + "&idx=" + idx + "&page="+page;
+			location.href='comment.do?del=&cmtidx=' + cmtidx + "&idx=" + idx + "&page="+page;
 		}else {
 			alert('댓글 삭제 취소합니다.');
 		}

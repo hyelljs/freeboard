@@ -21,6 +21,8 @@ pre{
 	padding-bottom:10px;
 	line-height:1.5em;
 	font-family:맑은고딕, Malgun Gothic, sans-serif;
+	word-break: break-all;
+	white-space: initial;
 }
 .row > li{
 	padding: 3px 0px;

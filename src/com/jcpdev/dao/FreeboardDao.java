@@ -73,9 +73,10 @@ public class FreeboardDao {
 	}
 	
 	public void readCount(int idx) {
-		SqlSession mapper = factory.openSession();
+		SqlSession mapper =factory.openSession();
 		mapper.update("readCount", idx);
 		mapper.commit();
 		mapper.close();
 	}
+	
 }

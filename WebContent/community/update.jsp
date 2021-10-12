@@ -11,11 +11,13 @@ function post_data() {
 }
 </script>
 <link rel="stylesheet" href="../css/freeboard.css?v=3">
+<link rel="stylesheet" href="css/flexbox2.css?v=3"><!-- url기준 -->
 </head>
 <body>
+<%@ include file="../top.jsp" %>
 <h3>동아리 커뮤니티 글 수정</h3>
 <hr>
-<form name="frm1" method="post" action="updateSave.jsp?page=${page }">
+<form name="frm1" method="post" action="community/updateSave.jsp?idx=${bean.idx}&page=${page }">
  <input type="hidden" name="idx" value="${bean.idx}">
  <table class="uptb">
  	<tr><th width="35%">제목</th>
@@ -34,9 +36,10 @@ function post_data() {
  	<tr><td colspan="2" align="center">
  	<input type="submit" value="저장" class="btn">
  	<input type="reset"  value="다시쓰기" class="btn">
- 	<input type="button" value="목록" class="btn" onclick="location.href='listAction.jsp?page=${page}'">
+ 	<input type="button" value="목록" class="btn" onclick="location.href='list.do?page=${page}'">
  	</td></tr>
  </table>
  </form>
+<%@ include file="../bottom.jsp" %>
 </body>
 </html>

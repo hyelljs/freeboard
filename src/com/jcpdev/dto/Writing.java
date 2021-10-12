@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Comment {
-	private int idx; //��� ��ȣ
-	private int writingIdx; //�� ��ȣ
+public class Writing {
+	private int idx; //�۹�ȣ
+	private String categoryIdx; //ī�װ� ��ȣ
 	private String userId; //���� ���̵�
-	private String content; //��� ����
+	private String subject; //�� ����
+	private String content; //�� ����
 }
